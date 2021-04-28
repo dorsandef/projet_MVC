@@ -90,11 +90,3 @@ router.put('/api/matchs/:id_match', matchapicontroller.updatematch);
 
 module.exports = router;
 
-//récuperer toutes les fonctions de taskcontroller
-//let taskController = require('./controllers/taskcontrollers');
-//redirige vers la bonne fonction selon l'URL
-//router.get('/tasks', taskController.fetchTasks);
-//router.post('/add', taskController.addTask);
-//router.get('/delete/:id', taskController.deleteTask)
-//permet d'utiliser les routes ailleurs
-//module.exports = router;

@@ -1,9 +1,6 @@
 let connection = require('../db.js');
-
 let Joueur = require('../models/joueurmodel.js');
 listejoueurs = [];
-
-// le GET des joueurs vers la page effectif se fait via voiturecontroller 
 
 // On ajoute un élément à la liste des joueurs 
 exports.addjoueur = function (req, res) {

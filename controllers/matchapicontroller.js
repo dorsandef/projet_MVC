@@ -65,7 +65,6 @@ exports.supprmatch = function (req, res) {
 };
 
 // Update d'un match (route API) 
-
 exports.updatematch = function (req, res) {
     let match = new Match(
         req.body.id_match, req.body.titre, 

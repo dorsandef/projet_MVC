@@ -6,8 +6,6 @@ let bodyParser = require('body-parser');
 //permet de recuperer les exports de routes.js
 let router = require('./routes');
 
-//je comprends github 
-
 //envoyer des infos dans l'url 
 app.use(express.urlencoded({extended:true}));
 //décodage du body sous format JSON

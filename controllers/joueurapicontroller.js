@@ -1,5 +1,4 @@
 let connection = require('../db.js');
-
 let Joueur = require('../models/joueurmodel.js');
 listejoueurs = [];
 
@@ -60,7 +59,6 @@ exports.supprjoueur = function (req, res) {
 };
 
 // Update d'une joueur (route API) 
-
 exports.updatejoueur = function (req, res) {
     let joueur = new Joueur(req.body.id, req.body.firstname, req.body.lastname, req.body.classement);
     console.log(joueur);

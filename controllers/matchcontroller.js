@@ -1,5 +1,4 @@
 let connection = require('../db.js');
-
 let Match = require('../models/matchmodel.js');
 listematchs = [];
 

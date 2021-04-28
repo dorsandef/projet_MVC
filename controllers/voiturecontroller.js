@@ -1,5 +1,4 @@
 let connection = require('../db.js');
-
 let Voiture = require('../models/voituremodel.js');
 listevoitures = [];
 
@@ -45,7 +44,6 @@ exports.supprvoiture = function (req, res) {
     });
 };
 
-
 // modifier un élément de la liste voitures 
 exports.updatevoiturepage = function (req, res) {
     let id = req.params.voitureid;
@@ -65,6 +63,7 @@ exports.updatevoiturepage = function (req, res) {
     });
 }
 
+// fonction d'update 
 exports.updatevoiture = function (req, res) {
     connection.query("UPDATE voitures SET name = ? WHERE id = ?;",
         [req.body.name, req.body.id], function (error, resultSQL) {

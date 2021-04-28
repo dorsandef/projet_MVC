@@ -1,5 +1,4 @@
 let connection = require('../db.js');
-
 let Voiture = require('../models/voituremodel.js');
 listevoitures = [];
 
