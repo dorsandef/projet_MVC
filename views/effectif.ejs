@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Effectif The Cure</title>
+    <link rel="stylesheet" href="/public/effectif.css" />
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+    <h2>Voitures</h2>
+    <div class='layoutvoitures'>
+        <div> <!-- Formulaire d'ajout de voiture-->
+            <form class="formaddvoiture" action="/effectif/ajouter/" method="post">
+                <fieldset>
+                    <legend><strong>Ajouter une voiture :</strong> </legend> </br>
+                    Nom:<input type="text" name="name" id="voiture" autofocus required/> </br>
+                    <input class="boutonsubmit" type="submit" value="Ajouter voiture" />
+                </fieldset>
+
+            </form>
+
+        </div>
+
+        <div>
+            <table> <!-- Table d'affichage des voitures-->
+
+                <% listevoitures.forEach(function(voiture) { %>
+                <tr>
+                    <td class='espacenoms'> <strong> <%= voiture.name %> </strong></td>
+                    <td class='espaceboutons'><button class="updatebutton"><a href='/effectif/update/<%= voiture.id %>'> Modifier </a></button>
+                        <button class="deletebutton"><a onclick="if(confirm('Etes-vous sûr de vouloir supprimer <%= voiture.name %>  de la Liste des voitures ?')) return true; else return false;" href="/effectif/supprimer/<%= voiture.id%>">X</a></button> </td>
+                </tr>
+                <% }); %>
+
+            </table>
+        </div>
+    </div>
+   
+    <h2>Joueurs</h2>
+    <div class='layoutvoitures'>
+        <div> <!-- Formulaire d'ajout de Joueur-->
+            <form class="formaddjoueur" action="/effectifj/ajouter/" method="post">
+                <fieldset>
+                    <legend><strong>Ajouter un joueur : </strong></legend> </br>
+                    Prénom:<input type="textonly" name="firstname" id="joueurfn" required/> </br>
+                    Nom: <input type="text" name="lastname" id="joueurln" required/> </br>
+                    Classement: <input type="text" name="classement" id="classement" /> </br>
+                    <input class="boutonsubmit" type="submit" value="Ajouter joueur" />
+                </fieldset>
+            </form>
+        </div>
+
+        <div>
+
+            <table> <!-- Table d'affichage des joueurs-->
+                <% listejoueurs.forEach(function(joueur) { %>
+                <tr>
+                    <td class='espacenoms'>
+                        <strong><%= joueur.firstname %> <%= joueur.lastname %> <%= joueur.classement %></strong></td>
+                    <td class="espaceboutons"> <button class="updatebutton"> <a href='/effectifj/update/<%= joueur.id%>'> Modifier
+                            </a></button>
+                        <button class="deletebutton">
+                            <a onclick="if(confirm('Etes-vous sûr de vouloir supprimer <%= joueur.firstname %> <%= joueur.lastname %> de la liste des joueurs ?')) return true; else return false;"
+                                href="/effectifj/supprimer/<%= joueur.id %>">
+                                X</a>
+                        </button>
+                    </td>
+                </tr>
+                <% }); %>
+            </table>
+        </div>
+    </div>
+</body>
+<%- include('footer.ejs') %>
+
+</html>

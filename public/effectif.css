@@ -1,0 +1,118 @@
+body {
+    background-image: url('./images/herbe1.jpg');
+    background-size : cover;
+    padding :0;
+    margin : 0;
+    height : 100%
+}
+
+a {
+    text-decoration: none; 
+    color:rgba(223, 244, 248, 0.884);
+}
+
+h2 {
+    text-align: center;   
+}
+
+/* CSS formulaire d'ajout de voitures/joueurs */
+
+fieldset {
+    background-color : #cf8141;
+    border-color: black;
+    border-radius : 10px;
+    margin-bottom : 5px;
+    text-align: center;
+    margin-top : 5px;    
+}
+
+.layoutvoitures {
+    display: flex;
+    justify-content: space-around;
+    border-radius : 5px;
+    margin-bottom : 15px;
+    margin-left : 100px;
+    margin-right : 100px;
+    background-color : rgba(99, 95, 95, 0.8);    
+}
+
+#voiture {
+    margin-left : 17px;
+}
+
+#joueurln {
+    margin-left : 14px;
+}
+
+.boutonsubmit {
+    margin-top: 20px;
+}
+
+/* CSS pour le tableau voitures/joueurs */
+
+table {
+    margin-top : 10px;
+    margin-bottom: 10px;
+    border-collapse: collapse; 
+}
+
+td {
+    border: solid 0.2px;
+    background-color : #cf8141;
+    border-color: rgba(0, 0, 0, 0.884);
+    opacity: 0,8;
+    padding-left:5px;
+    padding-right: 5px;
+}
+
+.espaceboutons {
+    text-align : center;
+    width : 170px;
+}
+
+.deletebutton {
+	border-radius: 5px;
+	background: red;
+	border:none;
+	font:bold 12px Verdana;
+    padding: 8px 20px ;
+    transition-duration: 0.4s;
+    margin-top : 5px;
+    margin-bottom : 5px;
+}
+
+.deletebutton:hover {
+  background-color: rgb(180, 35, 35)
+}
+
+.updatebutton {
+	border-radius: 5px;
+	background: green;
+	border:none;
+	font:bold 12px Verdana;
+    padding: 8px 20px ;
+    transition-duration: 0.4s;
+}
+
+.updatebutton:hover {
+  background-color: rgba(19, 104, 47, 0.685); 
+}
+
+@media (max-width: 800px) {
+    
+.layoutvoitures {
+    display : flex;
+    flex-direction : column;
+    margin-left : 10px;
+    margin-right : 10px;
+    align-items : center;
+    }
+
+.deletebutton {
+    padding : 4px 10px;
+    }
+
+.updatebutton {
+    padding: 4px 10px;
+    }
+}

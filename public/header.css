@@ -1,0 +1,75 @@
+/* css de l'en-tête */
+.head {
+  background-image: url('./images/NONE');
+  background-size: cover;
+  display : flex;
+  justify-content : space-between;
+  }
+  
+  h1 {
+    color :  #fffb15b6;
+    font-size: 80px; 
+    margin: auto auto;
+  }
+  
+  .logobatd {
+    height : 15%;
+    width : 15%;
+  }
+
+  .logobatd2 {
+    height : 15%;
+    width : 15%;
+    visibility: hidden;
+  }
+  
+  /* CSS barre de navigation */
+  #nav {
+    padding: 0;; margin:0;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color : rgba(31, 80, 31, 0.9);
+    
+  }
+  #nav li {
+      display: inline;
+    list-style: none;
+    
+  }
+  #nav a {
+      display:inline-block;
+    margin: 0 30px;
+    color:black;
+  }
+  
+  #nav button {
+      border-radius: 5px;
+      background-color : #fced1eb6;
+      border:none;
+      font:bold 20px Verdana;
+    padding: 14px 40px ;
+    margin-top : 10px;
+    transition-duration: 0.4s;
+  }
+   #nav button:hover {
+    background-color: rgba(224, 228, 240, 0.685); 
+    
+   }
+  
+   @media (max-width: 1200px) {
+    
+  
+    h1 {
+      font-size : 60px;
+      text-align: center;
+    }
+  }
+  
+   @media (max-width: 800px) {
+      #nav button {padding : 7px 5px;
+      }
+  
+      h1 {
+        font-size : 30px;
+      }
+    }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/updatematch.css" />
+    <title> Update Match </title>
+</head>
+<%- include('header.ejs') %>
+
+<body>
+    <fieldset>
+         <form action="/matchs/update" method="POST">
+            <div class="infosform">
+                <input type="hidden" value="<%= id %>" name="id_match">
+                <label for="mtitre"><strong>Titre :</strong></label>
+                <input id="mtitre" type="text" name="titre" value="<%= titre %>"><br>
+                <label for="mdate"><strong>Date :</strong></label>
+                <input id="mdate" type="date" name="date" value="<%= date %>"><br>
+                <label for="mheure"><strong>Heure :</strong></label>
+                <input id="mheure" type="time" name="heure" value="<%= heure %>"><br>
+                <label for="madresse"><strong>Adresse :</strong></label>
+                <input id="madresse" type="adresse" name="adresse" value="<%= adresse %>"><br>
+                <label for="joueur1"><strong>Joueur1 :</strong></label>
+                <input id="joueur1" type="joueur1" name="joueur1" value="<%= joueur1 %>"><br>
+                <label for="joueur2"><strong>Joueur2 :</strong></label>
+                <input id="joueur2" type="joueur2" name="joueur2" value="<%= joueur2 %>"><br>
+                <label for="joueur3"><strong>Joueur3 :</strong></label>
+                <input id="joueur3" type="joueur3" name="joueur3" value="<%= joueur3 %>"><br>
+                <label for="joueur4"><strong>Joueur4 :</strong></label>
+                <input id="joueur4" type="joueur4" name="joueur4" value="<%= joueur4 %>"><br>
+                <label for="joueur5"><strong>Joueur5 :</strong></label>
+                <input id="joueur5" type="joueur5" name="joueur5" value="<%= joueur5 %>"><br>
+                <label for="joueur6"><strong>Joueur6 :</strong></label>
+                <input id="joueur6" type="joueur6" name="joueur6" value="<%= joueur6 %>"><br>
+                <strong>voiture :</strong> 
+                <SELECT name="fk_id_voiture" size="1">
+                    <OPTION>voiture</OPTION>
+                    <% listevoitures.forEach(function(voiture) { %>
+                    <OPTION value="<%= voiture.id %>"> <%= voiture.name %> </OPTION>
+                    <% }); %>
+                </SELECT>
+                </br>
+                <input type="submit" name="save" value="Sauver">
+                <a href="/matchs"> <input type="button" value="Retour"> </a>
+            </div>
+        </form>
+    </fieldset>
+    
+</body>
+<%- include('footer.ejs') %>
+
+</html>

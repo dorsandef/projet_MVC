@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Matchs The Cure</title>
+    <link rel="stylesheet" href="/public/matchs.css" />
+</head>
+
+
+<%- include('header.ejs') %>
+
+<body>
+    <!-- Champs de recherche-->
+    <form class='findField' method="post" action="/matchs/rechercher">
+        <input type="text" name= "recherche" id="findField" value="Recherche Match" size="20" />
+        <input type="submit" class= "searchbutton" ></input>
+    </form><br>
+
+
+    <h2>Matchs</h2>
+        <div class= 'layoutvoitures'>
+            <div><!-- Formulaire d'ajout de match-->
+                <form action="/matchs/ajouter/" method="post">
+                <fieldset>
+                    <legend><strong>Ajouter un match: </strong> </legend>
+                    <div class="infosform">
+                        titre: <input type="text" name="titre" id="matchti" autofocus required/></br>
+                        Date: <input type="date" value="JJ/MM/AAAA" name="date" id="matchda"  required/></br>
+                        Heure: <input type="time" value="00:00" name="heure" id="timeda" required/></br>
+                        Adresse: <input type="text" name="adresse" id="matchad" required /></br>
+                        Joueur1: <input type="text" name="joueur1" id="joueur" required/></br>
+                        Joueur2: <input type="text" name="joueur2" id="joueur" required/></br>
+                        Joueur3: <input type="text" name="joueur3" id="joueur" required/></br>
+                        Joueur4: <input type="text" name="joueur4" id="joueur" required/></br>
+                        Joueur5: <input type="text" name="joueur5" id="joueur" /></br>
+                        Joueur6: <input type="text" name="joueur6" id="joueur" /></br>
+                        Voiture: 
+                            <SELECT name="fk_id_voiture" size="1">
+                            <OPTION>voiture</OPTION>
+                            <% listevoitures.forEach(function(voiture) { %>
+                            <OPTION value="<%= voiture.id %>"> <%= voiture.name %> </OPTION>
+                            <% }); %>
+                            </SELECT>
+                    </div>
+                    <div class="boxboutonsubmit">
+                        <input class="boutonsubmit" type="submit" value="Ajouter match" style="width:150px; height:30px" />
+                    </div>
+                </fieldset>
+        </form>
+    </div>
+    </div>
+
+            <!-- Affichage Liste des Matchs-->
+    <ul>
+        <% listematchs.forEach(function(match) { %>
+        <li class="elementmatch">
+            <div class='infosmatch'>
+                <div>
+                    <button class="deletebutton"><a
+                            onclick="if(confirm('Etes-vous sûr de vouloir supprimer <%= match.titre %> de la liste des matchs ?')) return true; else return false;"
+                            href="/matchs/supprimer/<%= match.id_match %>">X</a></button>
+                    <button class="updatebutton"> <a href='/matchs/update/<%= match.id_match %>'> Modifier </a></button>
+                    <h3> <%= match.titre %> </h3>
+                </div>
+                <p><em><strong>Date et heure:</strong></em> Le <%= match.date %> à <%= match.heure %> </p>
+                <p><em><strong>Adresse</strong></em> : <%= match.adresse %> </p>
+                <p><em><strong>Voiture du jour</strong></em> : <%= match.name %> </p>
+            </div>
+            <div class='composition'>
+                <p>Joueurs:</p>
+                    <strong><%= match.joueur1 %> </strong>
+                    <strong><%= match.joueur2 %> </strong>
+                    <strong><%= match.joueur3 %> </strong>
+                    <strong><%= match.joueur4 %> </strong>
+                    <strong><%= match.joueur5 %> </strong>
+                    <strong><%= match.joueur6 %> </strong>
+            </div>
+        </li>
+        <% }); %>
+
+</body>
+
+<%- include('footer.ejs') %>
+
+</html>
