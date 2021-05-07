@@ -47,15 +47,12 @@ exports.supprvoiture = function (req, res) {
 // modifier un élément de la liste voitures 
 exports.updatevoiturepage = function (req, res) {
     let id = req.params.voitureid;
-    console.log(id)
     connection.query("Select * from voitures WHERE voitures.id = ? ", id, function (error, resultSQL) {
         if (error) {
             res.status(400).send(error);
         }
         else {
             res.status(200);
-            console.log("MA REPONSE");
-            console.log(resultSQL);
             voitures = resultSQL;
             res.render('updatevoiture.ejs',
                 { id: voitures[0].id, name: voitures[0].name});
@@ -68,7 +65,6 @@ exports.updatevoiture = function (req, res) {
     connection.query("UPDATE voitures SET name = ? WHERE id = ?;",
         [req.body.name, req.body.id], function (error, resultSQL) {
             if (error) {
-                console.log(error);
                 res.status(400).send(error);
             } else {
                 res.status(202).redirect('/effectif');

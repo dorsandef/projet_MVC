@@ -6,10 +6,9 @@ listejoueurs = [];
 exports.effectifj = function (req, res) {
     connection.query(" SELECT * from joueurs;", function (error, result) {
         if (error) {
-            console.log(error);
             res.status(400).json({ "message": error });
         }
-        else {
+        else { 
             res.status(200).json(result);
         }
     })
@@ -24,8 +23,6 @@ exports.getjoueur = function (req, res) {
         }
         else {
             res.status(200);
-            console.log("MA REPONSE");
-            console.log(resultSQL);
             joueurs = resultSQL;
             res.json(
                 { id: joueurs[0].id, firstname: joueurs[0].firstname, lastname: joueurs[0].lastname, classement: joueurs[0].classement });
@@ -36,10 +33,8 @@ exports.getjoueur = function (req, res) {
 // On ajoute un joueur à la liste des joueurs (route API) 
 exports.addjoueur = function (req, res) {
     let joueur = new Joueur (req.body.id, req.body.firstname, req.body.lastname, req.body.classement);
-    console.log(joueur);
     connection.query("INSERT INTO joueurs set ?", joueur, function (error, resultSQL) {
         if (error) {
-            console.log(error);
             res.status(400).json({ "message": 'error' });
         } else {
             res.status(200).json({ "message": 'success' });
@@ -61,11 +56,9 @@ exports.supprjoueur = function (req, res) {
 // Update d'une joueur (route API) 
 exports.updatejoueur = function (req, res) {
     let joueur = new Joueur(req.body.id, req.body.firstname, req.body.lastname, req.body.classement);
-    console.log(joueur);
     connection.query("UPDATE joueurs SET ? WHERE id = ?",
         [joueur, req.body.id], function (error, resultSQL) {
             if (error) {
-                console.log(error);
                 res.status(400).json({ "message": 'error' });
             } else {
                 res.status(200).json({ "message": 'success' });

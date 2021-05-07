@@ -5,7 +5,6 @@ listejoueurs = [];
 // On ajoute un élément à la liste des joueurs 
 exports.addjoueur = function (req, res) {
     let joueur = new Joueur(req.body.id, req.body.firstname, req.body.lastname, req.body.classement);
-    console.log(joueur);
     connection.query("INSERT INTO joueurs set ?", joueur, function (error, resultSQL) {
         if (error) {
             res.status(400).send(error);
@@ -36,8 +35,6 @@ exports.updatejoueurpage = function (req, res) {
         }
         else {
             res.status(200);
-            console.log("MA REPONSE");
-            console.log(resultSQL);
             joueurs = resultSQL;
             res.render('updatejoueur.ejs',
                 { id: joueurs[0].id, firstname: joueurs[0].firstname, lastname: joueurs[0].lastname, classement: joueurs[0].classement});
@@ -48,11 +45,9 @@ exports.updatejoueurpage = function (req, res) {
 
 exports.updatejoueur = function (req, res) {
     let joueur = new Joueur(req.body.id, req.body.firstname, req.body.lastname, req.body.classement);
-    console.log(joueur);
     connection.query("UPDATE joueurs SET ? WHERE id = ?",
         [joueur, req.body.id], function (error, resultSQL) {
             if (error) {
-                console.log(error);
                 res.status(400).send(error);
             } else {
                 res.status(202).redirect('/effectif');

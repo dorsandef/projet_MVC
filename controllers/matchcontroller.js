@@ -28,7 +28,6 @@ exports.matchs = function (req, res) {
                 }
                 else {
                     res.status(200);
-                    console.log(resultSQL)
                     res.render('matchs.ejs', { listematchs: resultSQL3, listevoitures: resultSQL});
                 } 
             });
@@ -40,8 +39,7 @@ exports.matchs = function (req, res) {
 exports.addmatch = function (req, res) {
     let match = new Match(req.body.id_match, req.body.titre, req.body.date, req.body.heure, req.body.adresse, req.body.joueur1, req.body.joueur2, 
         req.body.joueur3, req.body.joueur4, req.body.joueur5, req.body.joueur6, req.body.fk_id_voiture);
-    console.log(match);
-    connection.query("INSERT INTO matchs set ?", match, function (error, resultSQL) {
+        connection.query("INSERT INTO matchs set ?", match, function (error, resultSQL) {
         if (error) {
             res.status(400).send(error);
         } else {
@@ -90,10 +88,8 @@ exports.updatematchpage = function (req, res) {
 exports.updatematch = function (req, res) {
     let match = new Match(req.body.id_match, req.body.titre, req.body.date, req.body.heure, req.body.adresse, req.body.joueur1, 
         req.body.joueur2, req.body.joueur3, req.body.joueur4, req.body.joueur5, req.body.joueur6, req.body.fk_id_voiture);
-    console.log(match);
     connection.query("UPDATE matchs SET ? WHERE id_match = ?", [match, req.body.id_match], function (error, resultSQL) {
             if (error) {
-                console.log(error);
                 res.status(400).send(error);
             } 
             else {
