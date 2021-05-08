@@ -33,7 +33,7 @@ fieldset {
     margin-bottom : 15px;
     margin-left : 100px;
     margin-right : 100px;
-    background-color :  rgba(99, 95, 95, 0.8);   
+    background-color : none;
 }
 
 #voiture {
